@@ -87,30 +87,92 @@ ul,ol{padding:0;list-style:none}
   .pick .t small{display:block;margin:2px 0 0}
 }
 
-/* Horizontale Strecke */
-.hs{background:var(--paper);position:relative}
-.hs-sticky{padding-block:clamp(56px,8vw,96px)}
-.hs-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 40px;margin-bottom:clamp(28px,4vw,52px)}
-.hs-head .eyebrow{color:var(--muted)}
+/* Bedarfs-Check */
+.check{background:var(--paper);padding-block:clamp(48px,6vw,84px);border-bottom:1px solid var(--line);scroll-margin-top:76px}
+.check-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 40px;margin-bottom:clamp(24px,3vw,40px)}
+.check-head .eyebrow{color:var(--muted)}
+.check-head h2{margin-top:16px}
+.check-steps{display:flex;gap:8px;margin-bottom:14px}
+.check-steps i{width:44px;height:2px;background:var(--line);transition:background .4s}
+.check-steps i.on{background:var(--red)}
+.check-view{overflow:hidden}
+.check-track{display:flex;transition:transform .7s var(--ease)}
+.step{flex:none;width:100%;border:0;padding:0;margin:0;min-width:0}
+.step legend,.step .legend{padding:0;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.opts button{all:unset;box-sizing:border-box;cursor:pointer;display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 20px;background:#faf8f4;border:1px solid var(--line);font-size:1rem;line-height:1.25;transition:border-color .25s,background .25s,transform .35s var(--ease)}
+.opts button i{flex:none;width:10px;height:10px;border-radius:50%;background:var(--c,var(--red));transition:transform .35s var(--ease)}
+.opts button:hover{border-color:var(--ink);background:#fff;transform:translateX(6px)}
+.opts button:hover i{transform:scale(1.6)}
+.opts button:focus-visible{outline:2px solid var(--red-ink);outline-offset:3px}
+.check-back{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:10px 0;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.check-back:hover{color:var(--ink)}
+.check-back:focus-visible{outline:2px solid var(--red-ink);outline-offset:3px}
+.check-back svg{width:16px;height:16px}
+.res{font-weight:300;font-size:clamp(1.5rem,3vw,2.4rem);line-height:1.15;letter-spacing:-.02em;max-width:26ch}
+.res b{font-weight:600}
+.result .cta{margin-top:26px}
+.btn.ghost{box-shadow:inset 0 0 0 1px #8f8b83;color:var(--ink)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+@media (max-width:1000px){.opts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.opts{grid-template-columns:1fr}}
+
+/* Buch: Seiten schlagen beim Scrollen um */
+.bk{background:var(--paper);position:relative}
+.bk.dark{background:var(--black);color:#fff}
+.bk-sticky{padding-block:clamp(56px,8vw,96px)}
+.bk-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 40px;margin-bottom:clamp(24px,3.4vw,44px)}
+.bk-head .eyebrow{color:var(--muted)}
+.bk.dark .bk-head .eyebrow{color:var(--ash)}
 h2{font-weight:300;font-size:clamp(2rem,4.2vw,3.8rem);line-height:1.04;letter-spacing:-.03em;text-wrap:balance}
 h2 b{font-weight:600}
-.hs-head h2{margin-top:18px}
-.hs-prog{width:min(260px,40vw);height:1px;background:var(--line);position:relative;margin-bottom:14px}
-.hs-prog i{position:absolute;left:0;top:-1px;height:3px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left}
-.track{display:flex;gap:18px;padding-inline:var(--pad);will-change:transform}
-.cat{--c:#888;flex:none;width:clamp(260px,24vw,340px);height:clamp(320px,52vh,440px);position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:26px;background:#faf8f4;border:1px solid var(--line);text-decoration:none;overflow:hidden;transition:border-color .35s,background .35s}
-.cat::before{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:var(--c);transform:scaleX(.16);transform-origin:left;transition:transform .6s var(--ease)}
-.cat:hover,.cat:focus-visible{border-color:#8f8b83;background:#fff}
-.cat:hover::before,.cat:focus-visible::before{transform:scaleX(1)}
-.cat .no{font-weight:200;font-size:clamp(3.4rem,6vw,5.4rem);line-height:.9;letter-spacing:-.04em;color:#857f73;transition:color .35s,transform .6s var(--ease)}
-.cat:hover .no{color:var(--ink);transform:translateX(10px)}
-.cat h3{font-weight:500;font-size:1.3rem;line-height:1.2;letter-spacing:-.01em;hyphens:manual}
-.cat .go{display:flex;align-items:center;gap:10px;margin-top:16px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-.cat:hover .go .arrow{transform:translateX(8px)}
-.js .hs.pinned .hs-sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding-block:90px 30px}
-.hs:not(.pinned) .track{overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);padding-bottom:18px;scrollbar-width:thin}
-.hs:not(.pinned) .cat{scroll-snap-align:start;width:min(76vw,320px);height:340px}
-.hs:not(.pinned) .hs-prog{display:none}
+.bk-head h2{margin-top:18px}
+.bk-nav{display:none;align-items:center;gap:16px;margin-bottom:6px}
+.bk-nav button{all:unset;box-sizing:border-box;cursor:pointer;width:48px;height:48px;border-radius:50%;box-shadow:inset 0 0 0 1px #8f8b83;display:grid;place-items:center;transition:box-shadow .25s,background .25s}
+.bk-nav button:hover{box-shadow:inset 0 0 0 1px currentColor}
+.bk-nav button:focus-visible{outline:2px solid var(--red-soft);outline-offset:3px}
+.bk-nav svg{width:16px;height:16px}
+.bk-count{font-size:.76rem;letter-spacing:.2em;font-variant-numeric:tabular-nums;min-width:74px;text-align:center}
+.bk-prog{display:none;height:1px;background:var(--line);position:relative;margin-top:26px}
+.bk.dark .bk-prog{background:var(--line-d)}
+.bk-prog i{position:absolute;left:0;top:-1px;height:3px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left}
+.book{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);padding:0 var(--pad) 18px;scrollbar-width:thin}
+.book li{flex:none;width:min(78vw,340px);scroll-snap-align:start;display:flex;flex-direction:column}
+.pg{margin:0}
+.pg.img{position:relative;aspect-ratio:4/3;background:#1a1a1c}
+.face{position:absolute;inset:0;overflow:hidden;background:#141416}
+.face svg,.face img.cover,.face > img:not(.pack){width:100%;height:100%;object-fit:cover;display:block}
+.face img.pack{position:absolute;inset:0;margin:auto;width:min(56%,270px);height:auto;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.pg.txt{flex:1;display:flex;flex-direction:column;justify-content:space-between;gap:28px;padding:24px;background:#faf8f4;color:var(--ink);border:1px solid var(--line);text-decoration:none;position:relative;overflow:hidden}
+.bk.dark .pg.txt{background:#141416;color:#fff;border-color:var(--line-d)}
+.pg.txt::before{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:var(--c);transform:scaleX(.16);transform-origin:left;transition:transform .6s var(--ease)}
+.pg.txt:hover::before,.pg.txt:focus-visible::before{transform:scaleX(1)}
+.pg .no{font-weight:200;font-size:clamp(3.2rem,6vw,6rem);line-height:.9;letter-spacing:-.04em;color:#857f73;transition:transform .6s var(--ease)}
+.bk.dark .pg .no{color:#8e8c87}
+.pg.txt:hover .no{transform:translateX(10px)}
+.pg .tag{display:block;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.bk.dark .pg .tag{color:#a3a19c}
+.pg h3{font-weight:400;font-size:clamp(1.3rem,2.6vw,2.4rem);line-height:1.12;letter-spacing:-.02em;hyphens:manual}
+.pg p{margin-top:12px;font-weight:300;color:var(--muted);max-width:32ch}
+.bk.dark .pg p{color:var(--ash)}
+.pg .go{display:flex;align-items:center;gap:10px;margin-top:20px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
+.pg.txt:hover .go .arrow{transform:translateX(8px)}
+.pg .fol{display:none;position:absolute;right:26px;top:28px;font-size:.7rem;letter-spacing:.2em;color:var(--muted);font-variant-numeric:tabular-nums}
+.bk.dark .pg .fol{color:#a3a19c}
+
+.js .bk.pinned .bk-sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding-block:88px 26px}
+.bk.pinned .bk-sticky > .wrap{width:100%}
+.bk.pinned .bk-nav{display:flex}
+.bk.pinned .bk-prog{display:block}
+.bk.pinned .book{display:block;position:relative;overflow:visible;padding:0;margin:0 auto;width:min(1216px,calc(100vw - 2*var(--pad)));height:min(54vh,520px);perspective:2600px}
+.bk.pinned .book::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:90px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,rgba(0,0,0,.22) 48%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.22) 52%,transparent);z-index:200;pointer-events:none}
+.bk.pinned .book li{display:contents}
+.bk.pinned .pg{position:absolute;top:0;left:50%;width:50%;height:100%;aspect-ratio:auto;transform-origin:left center;transform:rotateY(var(--a,0deg));will-change:transform}
+.bk.pinned .pg.txt{-webkit-backface-visibility:hidden;backface-visibility:hidden;padding:clamp(28px,3.4vw,52px);box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+.bk.pinned .pg.img{transform-style:preserve-3d;background:none}
+.bk.pinned .pg.img .face{transform:rotateY(180deg);-webkit-backface-visibility:hidden;backface-visibility:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+.bk.pinned .pg.txt::after,.bk.pinned .face::after{content:"";position:absolute;inset:0;background:#000;opacity:var(--sh,0);pointer-events:none}
+.bk.pinned .pg .fol{display:block}
 
 /* Laufband */
 .marq{background:var(--black);color:#fff;border-block:1px solid var(--line-d);overflow:hidden;padding-block:26px}
@@ -120,43 +182,35 @@ h2 b{font-weight:600}
 .marq li::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--red);margin-inline:clamp(22px,3vw,44px)}
 @keyframes marq{to{transform:translateX(-50%)}}
 
-/* Aktuell: Zeilen */
+/* Abschnitte */
 .dark{background:var(--black);color:#fff}
 section{padding-block:clamp(72px,10vw,140px)}
 .sec-head{margin-bottom:clamp(32px,5vw,64px)}
 .sec-head .eyebrow{color:var(--ash)}
 .sec-head h2{margin-top:18px;max-width:18ch}
-.rows{border-top:1px solid var(--line-d)}
-.rows a{position:relative;display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.5fr) minmax(0,1.6fr) auto;gap:14px 32px;align-items:center;padding:30px 0;border-bottom:1px solid var(--line-d);text-decoration:none;overflow:hidden}
-.rows a::before{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
-.rows a:hover::before,.rows a:focus-visible::before{transform:scaleX(1)}
-.rows a > *{transition:transform .5s var(--ease)}
-.rows a:hover > *{transform:translateX(18px)}
-.rows a:hover > .arrow{transform:translateX(-6px)}
-.rows .tag{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#8e8c87}
-.rows h3{font-weight:300;font-size:clamp(1.4rem,2.6vw,2.2rem);line-height:1.1;letter-spacing:-.02em}
-.rows p{color:var(--ash);font-weight:300;font-size:.98rem;max-width:44ch}
-.rows .arrow{width:22px;height:22px;margin-right:18px}
-@media (max-width:860px){.rows a{grid-template-columns:minmax(0,1fr) auto;padding:24px 0}.rows .tag,.rows h3,.rows p{grid-column:1}.rows .arrow{grid-column:2;grid-row:1/4;margin-right:4px}.rows a:hover > *{transform:none}}
 
-/* Qualität */
-.light{background:var(--paper)}
-.light .sec-head .eyebrow{color:var(--muted)}
+/* Qualität: Laborbild als Hintergrund */
+.science{position:relative;overflow:hidden;background:#0b0b0c;color:#fff;min-height:min(92vh,860px);display:flex;align-items:center}
+.science .bg{position:absolute;left:0;top:-12%;width:100%;height:124%;object-fit:cover;will-change:transform}
+.science::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(9,9,10,.94) 0%,rgba(9,9,10,.8) 42%,rgba(9,9,10,.28) 100%)}
+.science .wrap{position:relative;z-index:2;width:100%}
+.science .eyebrow{color:var(--ash)}
+.science h2{margin-top:18px;max-width:14ch}
+.lead{font-weight:300;font-size:1.08rem;max-width:44ch;margin-top:22px;color:#dedbd5}
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:44px;border-top:1px solid rgba(255,255,255,.28);max-width:620px}
+.nums li{padding:22px 16px 0 0}
+.nums li + li{padding-left:22px;border-left:1px solid rgba(255,255,255,.28)}
+.nums b{display:block;font-weight:200;font-size:clamp(2.6rem,5vw,4.2rem);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.nums span{display:block;color:#dedbd5;font-size:.86rem;margin-top:10px;line-height:1.4}
+.more{display:inline-flex;gap:12px;align-items:center;margin-top:40px;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:12px 0;border-bottom:1px solid currentColor}
+.more:hover .arrow{transform:translateX(8px)}
 .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
 .split figure{overflow:hidden}
-.split figure img{width:100%;aspect-ratio:5/4;object-fit:cover}
-.lead{color:var(--muted);font-weight:300;font-size:1.08rem;max-width:44ch;margin-top:22px}
-.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:44px;border-top:1px solid var(--line)}
-.nums li{padding:22px 16px 0 0}
-.nums li + li{padding-left:22px;border-left:1px solid var(--line)}
-.nums b{display:block;font-weight:200;font-size:clamp(2.6rem,5vw,4.2rem);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
-.nums span{display:block;color:var(--muted);font-size:.86rem;margin-top:10px;line-height:1.4}
-.more{display:inline-flex;gap:12px;align-items:center;margin-top:40px;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;padding:12px 0;border-bottom:1px solid var(--ink)}
-.more:hover .arrow{transform:translateX(8px)}
-@media (max-width:860px){.split{grid-template-columns:1fr}}
+@media (max-width:860px){.split{grid-template-columns:1fr}.science::before{background:rgba(9,9,10,.82)}}
+@media (max-width:480px){.nums{grid-template-columns:1fr}.nums li + li{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.28);margin-top:18px}}
 
 /* Standorte: seitlich laufende Zeile */
-.sites{background:var(--paper);overflow:hidden;padding-block:0 clamp(72px,10vw,140px)}
+.sites{background:var(--paper);overflow:hidden;padding-block:clamp(72px,10vw,140px)}
 .sites p{color:var(--muted);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:22px}
 .sites ul{display:flex;width:max-content;will-change:transform}
 .sites li{white-space:nowrap;font-weight:200;font-size:clamp(2.4rem,7vw,6rem);line-height:1.1;letter-spacing:-.04em;color:#827c70;display:flex;align-items:center}
@@ -226,7 +280,7 @@ footer .note{flex-basis:100%;font-size:.8rem;max-width:90ch}
       <h1>Bauchemie &amp; Trockenmörtel für <em>jede Schicht</em> im Bauwerk</h1>
       <p class="sub">Abdichtungen, Fliesenkleber, Mörtel, Farben und Beschichtungen. Entwickelt und produziert von ISOMAT, beraten aus Karlsruhe.</p>
       <div class="cta">
-        <a class="btn red mag" href="https://www.isomat.com.de/products/">Produkte finden
+        <a class="btn red mag" href="#check">Passendes Produkt finden
           <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></a>
         <a class="btn line mag" href="#kontakt">Fachberatung anfragen</a>
       </div>
@@ -245,25 +299,63 @@ footer .note{flex-basis:100%;font-size:.8rem;max-width:90ch}
   </div>
 </div>
 
-<div class="hs" id="hs" aria-labelledby="h-kat">
-  <div class="hs-sticky">
-    <div class="wrap hs-head">
+<div class="check" id="check" aria-labelledby="h-check">
+  <div class="wrap">
+    <div class="check-head">
+      <div>
+        <p class="eyebrow">Bedarfs-Check · 20 Sekunden</p>
+        <h2 id="h-check">Was haben Sie <b>vor?</b></h2>
+      </div>
+      <div class="check-steps" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+    </div>
+    <div class="check-view">
+      <div class="check-track" id="checktrack">
+        <fieldset class="step" data-step="0"><legend>Schritt 1 von 3: Ihre Aufgabe</legend><div class="opts"><button type="button" data-cat="0" style="--c:#1d71b8"><i></i>Abdichten</button><button type="button" data-cat="1" style="--c:#1f9d4d"><i></i>Fassade dämmen</button><button type="button" data-cat="2" style="--c:#e5007d"><i></i>Streichen &amp; schützen</button><button type="button" data-cat="3" style="--c:#8cc63f"><i></i>Fliesen verlegen</button><button type="button" data-cat="4" style="--c:#00a9a5"><i></i>Beton herstellen oder instandsetzen</button><button type="button" data-cat="5" style="--c:#e6b915"><i></i>Mauern oder verputzen</button><button type="button" data-cat="6" style="--c:#7f4197"><i></i>Industrieboden beschichten</button><button type="button" data-cat="7" style="--c:#f15a24"><i></i>Dekorative Oberfläche</button></div></fieldset>
+        <fieldset class="step" data-step="1" inert><legend>Schritt 2 von 3: Wer sind Sie?</legend><div class="opts who">
+          <button type="button" data-who="Verarbeiter"><i></i>Verarbeiter oder Handwerksbetrieb</button>
+          <button type="button" data-who="Planer"><i></i>Planer oder Architekt</button>
+          <button type="button" data-who="Händler"><i></i>Baustoffhändler</button>
+          <button type="button" data-who="Bauherr"><i></i>Bauherr oder privat</button>
+        </div><button type="button" class="check-back"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M16 9H3M7.5 4.5 3 9l4.5 4.5"/></svg> Zurück</button></fieldset>
+        <div class="step result" data-step="2" inert aria-live="polite">
+          <p class="legend">Schritt 3 von 3: Ihr Bereich</p>
+          <p class="res" id="checkres"></p>
+          <div class="cta">
+            <a class="btn red" id="checkgo" href="https://www.isomat.com.de/products/">Produkte ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></a>
+            <a class="btn ghost" id="checkmail" href="mailto:info@isomat.com.de">Beratung per E-Mail anfragen</a>
+            <a class="btn ghost" href="tel:+497211805400">+49 (0) 721 1805400</a>
+          </div>
+          <button type="button" class="check-back"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M16 9H3M7.5 4.5 3 9l4.5 4.5"/></svg> Neu starten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bk" id="bk1" aria-labelledby="h-kat">
+  <div class="bk-sticky">
+    <div class="wrap bk-head">
       <div>
         <p class="eyebrow">Sortiment</p>
         <h2 id="h-kat">Acht Bereiche, <b>ein Hersteller</b></h2>
       </div>
-      <div class="hs-prog" aria-hidden="true"><i id="hsbar"></i></div>
+      <div class="bk-nav">
+        <button type="button" class="bk-prev" aria-label="Zurückblättern"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M16 9H3M7.5 4.5 3 9l4.5 4.5"/></svg></button>
+        <span class="bk-count" aria-hidden="true">01 / 08</span>
+        <button type="button" class="bk-next" aria-label="Weiterblättern"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></button>
+      </div>
     </div>
-    <div class="track" id="track">
-      <a class="cat" style="--c:#1d71b8" href="https://www.isomat.com.de/products/bauwerksabdichtung/"><span class="no">01</span><div><h3>Bauwerks&shy;abdichtung</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></div></a>
-      <a class="cat" style="--c:#1f9d4d" href="https://www.isomat.com.de/products/wdv-systeme/"><span class="no">02</span><div><h3>WDV-Systeme</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></div></a>
-      <a class="cat" style="--c:#e5007d" href="https://www.isomat.com.de/products/putze-farben/"><span class="no">03</span><div><h3>Farben &amp; Oberflächen&shy;schutz</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></div></a>
-      <a class="cat" style="--c:#8cc63f" href="https://www.isomat.com.de/products/fliesen-natursteinverlegung/"><span class="no">04</span><div><h3>Fliesen- &amp; Naturstein&shy;verlegung</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></div></a>
-      <a class="cat" style="--c:#00a9a5" href="https://www.isomat.com.de/products/beton-morteladditive/"><span class="no">05</span><div><h3>Beton&shy;herstellung &amp; -instand&shy;setzung</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></div></a>
-      <a class="cat" style="--c:#e6b915" href="https://www.isomat.com.de/products/bauwerksinstandsetzung/"><span class="no">06</span><div><h3>Mauerwerks&shy;herstellung &amp; -instand&shy;setzung</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></div></a>
-      <a class="cat" style="--c:#7f4197" href="https://www.isomat.com.de/products/bodenbeschichtungen/"><span class="no">07</span><div><h3>Industrie&shy;beschichtungen</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></div></a>
-      <a class="cat" style="--c:#f15a24" href="https://www.isomat.com.de/products/dekorative-boden-wandbeschichtungen/"><span class="no">08</span><div><h3>Dekorative Boden- &amp; Wand&shy;beschichtungen</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></div></a>
-    </div>
+    <ul class="book">
+      <li style="--c:#1d71b8"><figure class="pg img"><div class="face"><svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="500" fill="var(--c)"/><rect width="600" height="500" fill="#000" opacity=".42"/><g fill="none" stroke="#fff" stroke-width="1.2"><circle cx="190" cy="210" r="24" opacity="0.56"/><circle cx="190" cy="210" r="48" opacity="0.51"/><circle cx="190" cy="210" r="72" opacity="0.45"/><circle cx="190" cy="210" r="96" opacity="0.4"/><circle cx="190" cy="210" r="120" opacity="0.34"/><circle cx="190" cy="210" r="144" opacity="0.29"/><circle cx="190" cy="210" r="168" opacity="0.23"/><circle cx="190" cy="210" r="192" opacity="0.18"/><circle cx="190" cy="210" r="216" opacity="0.12"/><circle cx="430" cy="330" r="24" opacity="0.56"/><circle cx="430" cy="330" r="48" opacity="0.51"/><circle cx="430" cy="330" r="72" opacity="0.45"/><circle cx="430" cy="330" r="96" opacity="0.4"/><circle cx="430" cy="330" r="120" opacity="0.34"/><circle cx="430" cy="330" r="144" opacity="0.29"/><circle cx="470" cy="110" r="24" opacity="0.56"/><circle cx="470" cy="110" r="48" opacity="0.51"/><circle cx="470" cy="110" r="72" opacity="0.45"/><circle cx="470" cy="110" r="96" opacity="0.4"/></g></svg></div></figure><a class="pg txt" href="https://www.isomat.com.de/products/bauwerksabdichtung/"><span class="no">01</span><span class="body"><h3>Bauwerks&shy;abdichtung</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></span><span class="fol">01 / 08</span></a></li>
+      <li style="--c:#1f9d4d"><figure class="pg img"><div class="face"><svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="500" fill="var(--c)"/><rect width="600" height="500" fill="#000" opacity=".42"/><g fill="none" stroke="#fff" stroke-width="1.2"><rect x="-10" y="60" width="620" height="70" fill="#fff" stroke="none" opacity="0.1"/><rect x="-10" y="130" width="620" height="150" fill="#fff" stroke="none" opacity="0.22"/><rect x="-10" y="280" width="620" height="26" fill="#fff" stroke="none" opacity="0.34"/><rect x="-10" y="306" width="620" height="60" fill="#fff" stroke="none" opacity="0.16"/><rect x="-10" y="366" width="620" height="20" fill="#fff" stroke="none" opacity="0.4"/><polyline points="-30,150 0,260 30,150 60,260 90,150 120,260 150,150 180,260 210,150 240,260 270,150 300,260 330,150 360,260 390,150 420,260 450,150 480,260 510,150 540,260 570,150 600,260 630,150" opacity=".55"/><line x1="0" y1="130" x2="600" y2="130" opacity=".5"/><line x1="0" y1="280" x2="600" y2="280" opacity=".5"/><line x1="0" y1="306" x2="600" y2="306" opacity=".5"/><line x1="0" y1="366" x2="600" y2="366" opacity=".5"/><line x1="0" y1="386" x2="600" y2="386" opacity=".5"/></g></svg></div></figure><a class="pg txt" href="https://www.isomat.com.de/products/wdv-systeme/"><span class="no">02</span><span class="body"><h3>WDV-Systeme</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></span><span class="fol">02 / 08</span></a></li>
+      <li style="--c:#e5007d"><figure class="pg img"><div class="face"><svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="500" fill="var(--c)"/><rect width="600" height="500" fill="#000" opacity=".42"/><g fill="none" stroke="#fff" stroke-width="1.2"><path d="M-40 130 C 140 40, 320 160, 660 60" stroke-width="70" stroke-linecap="round" opacity="0.16"/><path d="M-40 220 C 140 130, 320 250, 660 150" stroke-width="84" stroke-linecap="round" opacity="0.3"/><path d="M-40 315 C 140 225, 320 345, 660 245" stroke-width="64" stroke-linecap="round" opacity="0.2"/><path d="M-40 400 C 140 310, 320 430, 660 330" stroke-width="90" stroke-linecap="round" opacity="0.38"/><path d="M-40 490 C 140 400, 320 520, 660 420" stroke-width="60" stroke-linecap="round" opacity="0.14"/></g></svg></div></figure><a class="pg txt" href="https://www.isomat.com.de/products/putze-farben/"><span class="no">03</span><span class="body"><h3>Farben &amp; Oberflächen&shy;schutz</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></span><span class="fol">03 / 08</span></a></li>
+      <li style="--c:#8cc63f"><figure class="pg img"><div class="face"><svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="500" fill="var(--c)"/><rect width="600" height="500" fill="#000" opacity=".42"/><g fill="none" stroke="#fff" stroke-width="1.2"><g transform="rotate(45 300 250)"><line x1="-300" y1="-300" x2="-300" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="-300" x2="900" y2="-300" opacity=".5" stroke-width="5"/><line x1="-204" y1="-300" x2="-204" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="-204" x2="900" y2="-204" opacity=".5" stroke-width="5"/><line x1="-108" y1="-300" x2="-108" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="-108" x2="900" y2="-108" opacity=".5" stroke-width="5"/><line x1="-12" y1="-300" x2="-12" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="-12" x2="900" y2="-12" opacity=".5" stroke-width="5"/><line x1="84" y1="-300" x2="84" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="84" x2="900" y2="84" opacity=".5" stroke-width="5"/><line x1="180" y1="-300" x2="180" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="180" x2="900" y2="180" opacity=".5" stroke-width="5"/><line x1="276" y1="-300" x2="276" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="276" x2="900" y2="276" opacity=".5" stroke-width="5"/><line x1="372" y1="-300" x2="372" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="372" x2="900" y2="372" opacity=".5" stroke-width="5"/><line x1="468" y1="-300" x2="468" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="468" x2="900" y2="468" opacity=".5" stroke-width="5"/><line x1="564" y1="-300" x2="564" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="564" x2="900" y2="564" opacity=".5" stroke-width="5"/><line x1="660" y1="-300" x2="660" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="660" x2="900" y2="660" opacity=".5" stroke-width="5"/><line x1="756" y1="-300" x2="756" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="756" x2="900" y2="756" opacity=".5" stroke-width="5"/><line x1="852" y1="-300" x2="852" y2="800" opacity=".5" stroke-width="5"/><line x1="-300" y1="852" x2="900" y2="852" opacity=".5" stroke-width="5"/></g></g></svg></div></figure><a class="pg txt" href="https://www.isomat.com.de/products/fliesen-natursteinverlegung/"><span class="no">04</span><span class="body"><h3>Fliesen- &amp; Naturstein&shy;verlegung</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></span><span class="fol">04 / 08</span></a></li>
+      <li style="--c:#00a9a5"><figure class="pg img"><div class="face"><svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="500" fill="var(--c)"/><rect width="600" height="500" fill="#000" opacity=".42"/><g fill="none" stroke="#fff" stroke-width="1.2"><circle cx="331" cy="485" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="49" cy="37" r="16" fill="#fff" stroke="none" opacity="0.1"/><circle cx="374" cy="298" r="2" fill="#fff" stroke="none" opacity="0.16"/><circle cx="38" cy="44" r="5" fill="#fff" stroke="none" opacity="0.34"/><circle cx="71" cy="123" r="2" fill="#fff" stroke="none" opacity="0.34"/><circle cx="60" cy="423" r="7" fill="#fff" stroke="none" opacity="0.1"/><circle cx="228" cy="322" r="11" fill="#fff" stroke="none" opacity="0.1"/><circle cx="590" cy="299" r="5" fill="#fff" stroke="none" opacity="0.1"/><circle cx="226" cy="23" r="7" fill="#fff" stroke="none" opacity="0.16"/><circle cx="296" cy="214" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="584" cy="157" r="7" fill="#fff" stroke="none" opacity="0.16"/><circle cx="105" cy="297" r="7" fill="#fff" stroke="none" opacity="0.16"/><circle cx="381" cy="49" r="7" fill="#fff" stroke="none" opacity="0.1"/><circle cx="577" cy="30" r="7" fill="#fff" stroke="none" opacity="0.16"/><circle cx="508" cy="348" r="7" fill="#fff" stroke="none" opacity="0.34"/><circle cx="321" cy="238" r="7" fill="#fff" stroke="none" opacity="0.34"/><circle cx="370" cy="153" r="3" fill="#fff" stroke="none" opacity="0.16"/><circle cx="249" cy="41" r="7" fill="#fff" stroke="none" opacity="0.24"/><circle cx="537" cy="253" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="294" cy="311" r="2" fill="#fff" stroke="none" opacity="0.1"/><circle cx="524" cy="214" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="155" cy="477" r="5" fill="#fff" stroke="none" opacity="0.34"/><circle cx="40" cy="492" r="11" fill="#fff" stroke="none" opacity="0.1"/><circle cx="571" cy="293" r="16" fill="#fff" stroke="none" opacity="0.24"/><circle cx="348" cy="355" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="593" cy="408" r="5" fill="#fff" stroke="none" opacity="0.1"/><circle cx="95" cy="483" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="66" cy="31" r="11" fill="#fff" stroke="none" opacity="0.24"/><circle cx="591" cy="348" r="16" fill="#fff" stroke="none" opacity="0.34"/><circle cx="291" cy="366" r="5" fill="#fff" stroke="none" opacity="0.24"/><circle cx="23" cy="481" r="5" fill="#fff" stroke="none" opacity="0.24"/><circle cx="172" cy="312" r="2" fill="#fff" stroke="none" opacity="0.34"/><circle cx="60" cy="111" r="16" fill="#fff" stroke="none" opacity="0.24"/><circle cx="132" cy="378" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="400" cy="469" r="16" fill="#fff" stroke="none" opacity="0.34"/><circle cx="82" cy="85" r="5" fill="#fff" stroke="none" opacity="0.34"/><circle cx="562" cy="142" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="563" cy="142" r="11" fill="#fff" stroke="none" opacity="0.34"/><circle cx="367" cy="349" r="5" fill="#fff" stroke="none" opacity="0.16"/><circle cx="154" cy="42" r="3" fill="#fff" stroke="none" opacity="0.16"/><circle cx="237" cy="337" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="496" cy="425" r="7" fill="#fff" stroke="none" opacity="0.16"/><circle cx="269" cy="144" r="2" fill="#fff" stroke="none" opacity="0.16"/><circle cx="429" cy="273" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="128" cy="353" r="16" fill="#fff" stroke="none" opacity="0.1"/><circle cx="467" cy="460" r="16" fill="#fff" stroke="none" opacity="0.34"/><circle cx="407" cy="204" r="5" fill="#fff" stroke="none" opacity="0.1"/><circle cx="493" cy="324" r="5" fill="#fff" stroke="none" opacity="0.1"/><circle cx="195" cy="34" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="166" cy="56" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="104" cy="0" r="7" fill="#fff" stroke="none" opacity="0.16"/><circle cx="549" cy="51" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="72" cy="447" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="152" cy="324" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="372" cy="242" r="2" fill="#fff" stroke="none" opacity="0.1"/><circle cx="499" cy="500" r="5" fill="#fff" stroke="none" opacity="0.34"/><circle cx="495" cy="159" r="2" fill="#fff" stroke="none" opacity="0.16"/><circle cx="104" cy="383" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="490" cy="424" r="11" fill="#fff" stroke="none" opacity="0.16"/><circle cx="528" cy="11" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="150" cy="353" r="7" fill="#fff" stroke="none" opacity="0.1"/><circle cx="540" cy="152" r="11" fill="#fff" stroke="none" opacity="0.1"/><circle cx="267" cy="265" r="3" fill="#fff" stroke="none" opacity="0.16"/><circle cx="364" cy="395" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="228" cy="313" r="16" fill="#fff" stroke="none" opacity="0.16"/><circle cx="245" cy="418" r="5" fill="#fff" stroke="none" opacity="0.16"/><circle cx="204" cy="265" r="5" fill="#fff" stroke="none" opacity="0.24"/><circle cx="29" cy="14" r="16" fill="#fff" stroke="none" opacity="0.24"/><circle cx="483" cy="132" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="457" cy="413" r="11" fill="#fff" stroke="none" opacity="0.24"/><circle cx="373" cy="41" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="232" cy="240" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="209" cy="247" r="7" fill="#fff" stroke="none" opacity="0.1"/><circle cx="490" cy="465" r="11" fill="#fff" stroke="none" opacity="0.24"/><circle cx="86" cy="427" r="11" fill="#fff" stroke="none" opacity="0.1"/><circle cx="397" cy="400" r="11" fill="#fff" stroke="none" opacity="0.16"/><circle cx="489" cy="455" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="340" cy="44" r="16" fill="#fff" stroke="none" opacity="0.34"/><circle cx="474" cy="205" r="11" fill="#fff" stroke="none" opacity="0.1"/><circle cx="162" cy="87" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="154" cy="302" r="5" fill="#fff" stroke="none" opacity="0.16"/><circle cx="485" cy="336" r="3" fill="#fff" stroke="none" opacity="0.16"/><circle cx="561" cy="280" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="14" cy="409" r="11" fill="#fff" stroke="none" opacity="0.1"/><circle cx="539" cy="383" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="199" cy="422" r="16" fill="#fff" stroke="none" opacity="0.16"/><circle cx="28" cy="128" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="513" cy="123" r="16" fill="#fff" stroke="none" opacity="0.24"/><circle cx="265" cy="278" r="5" fill="#fff" stroke="none" opacity="0.16"/><circle cx="62" cy="465" r="11" fill="#fff" stroke="none" opacity="0.24"/><circle cx="469" cy="339" r="7" fill="#fff" stroke="none" opacity="0.34"/><circle cx="513" cy="66" r="7" fill="#fff" stroke="none" opacity="0.16"/><circle cx="536" cy="261" r="2" fill="#fff" stroke="none" opacity="0.34"/><circle cx="187" cy="311" r="2" fill="#fff" stroke="none" opacity="0.16"/><circle cx="176" cy="72" r="5" fill="#fff" stroke="none" opacity="0.1"/><circle cx="569" cy="31" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="108" cy="452" r="7" fill="#fff" stroke="none" opacity="0.1"/><circle cx="254" cy="97" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="100" cy="259" r="5" fill="#fff" stroke="none" opacity="0.1"/><circle cx="64" cy="226" r="3" fill="#fff" stroke="none" opacity="0.16"/><circle cx="283" cy="231" r="7" fill="#fff" stroke="none" opacity="0.34"/><circle cx="519" cy="482" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="572" cy="457" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="140" cy="213" r="2" fill="#fff" stroke="none" opacity="0.34"/><circle cx="452" cy="161" r="2" fill="#fff" stroke="none" opacity="0.16"/><circle cx="438" cy="37" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="125" cy="459" r="16" fill="#fff" stroke="none" opacity="0.16"/><circle cx="374" cy="73" r="3" fill="#fff" stroke="none" opacity="0.16"/><circle cx="478" cy="112" r="11" fill="#fff" stroke="none" opacity="0.1"/><circle cx="407" cy="453" r="5" fill="#fff" stroke="none" opacity="0.16"/><circle cx="229" cy="82" r="11" fill="#fff" stroke="none" opacity="0.34"/><circle cx="527" cy="206" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="200" cy="182" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="374" cy="9" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="451" cy="360" r="2" fill="#fff" stroke="none" opacity="0.34"/><circle cx="339" cy="264" r="7" fill="#fff" stroke="none" opacity="0.24"/><circle cx="524" cy="491" r="2" fill="#fff" stroke="none" opacity="0.1"/><circle cx="234" cy="497" r="2" fill="#fff" stroke="none" opacity="0.1"/><circle cx="271" cy="139" r="2" fill="#fff" stroke="none" opacity="0.16"/><circle cx="276" cy="386" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="264" cy="207" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="334" cy="45" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="187" cy="217" r="2" fill="#fff" stroke="none" opacity="0.24"/><circle cx="17" cy="324" r="2" fill="#fff" stroke="none" opacity="0.24"/><circle cx="85" cy="311" r="16" fill="#fff" stroke="none" opacity="0.16"/><circle cx="68" cy="135" r="16" fill="#fff" stroke="none" opacity="0.1"/><circle cx="464" cy="5" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="274" cy="318" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="539" cy="363" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="165" cy="134" r="2" fill="#fff" stroke="none" opacity="0.16"/><circle cx="206" cy="477" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="543" cy="388" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="456" cy="256" r="11" fill="#fff" stroke="none" opacity="0.16"/><circle cx="277" cy="177" r="16" fill="#fff" stroke="none" opacity="0.1"/><circle cx="256" cy="18" r="2" fill="#fff" stroke="none" opacity="0.1"/><circle cx="517" cy="282" r="3" fill="#fff" stroke="none" opacity="0.34"/><circle cx="251" cy="478" r="5" fill="#fff" stroke="none" opacity="0.1"/><circle cx="442" cy="336" r="5" fill="#fff" stroke="none" opacity="0.34"/><circle cx="518" cy="157" r="11" fill="#fff" stroke="none" opacity="0.16"/><circle cx="235" cy="175" r="3" fill="#fff" stroke="none" opacity="0.16"/><circle cx="414" cy="177" r="2" fill="#fff" stroke="none" opacity="0.16"/><circle cx="14" cy="36" r="11" fill="#fff" stroke="none" opacity="0.24"/><circle cx="441" cy="83" r="2" fill="#fff" stroke="none" opacity="0.1"/><circle cx="390" cy="445" r="7" fill="#fff" stroke="none" opacity="0.24"/><circle cx="248" cy="354" r="3" fill="#fff" stroke="none" opacity="0.1"/><circle cx="470" cy="94" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="456" cy="1" r="3" fill="#fff" stroke="none" opacity="0.24"/><circle cx="336" cy="497" r="7" fill="#fff" stroke="none" opacity="0.24"/><circle cx="250" cy="17" r="3" fill="#fff" stroke="none" opacity="0.16"/><circle cx="365" cy="93" r="2" fill="#fff" stroke="none" opacity="0.24"/></g></svg></div></figure><a class="pg txt" href="https://www.isomat.com.de/products/beton-morteladditive/"><span class="no">05</span><span class="body"><h3>Beton&shy;herstellung &amp; -instand&shy;setzung</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></span><span class="fol">05 / 08</span></a></li>
+      <li style="--c:#e6b915"><figure class="pg img"><div class="face"><svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="500" fill="var(--c)"/><rect width="600" height="500" fill="#000" opacity=".42"/><g fill="none" stroke="#fff" stroke-width="1.2"><rect x="-75" y="-10" width="140" height="52" opacity=".5"/><rect x="75" y="-10" width="140" height="52" opacity=".5"/><rect x="225" y="-10" width="140" height="52" opacity=".5"/><rect x="375" y="-10" width="140" height="52" opacity=".5"/><rect x="525" y="-10" width="140" height="52" opacity=".5"/><rect x="0" y="52" width="140" height="52" opacity=".5"/><rect x="150" y="52" width="140" height="52" opacity=".5"/><rect x="300" y="52" width="140" height="52" opacity=".5"/><rect x="450" y="52" width="140" height="52" opacity=".5"/><rect x="600" y="52" width="140" height="52" opacity=".5"/><rect x="-75" y="114" width="140" height="52" opacity=".5"/><rect x="75" y="114" width="140" height="52" opacity=".5"/><rect x="225" y="114" width="140" height="52" opacity=".5"/><rect x="375" y="114" width="140" height="52" opacity=".5"/><rect x="525" y="114" width="140" height="52" opacity=".5"/><rect x="0" y="176" width="140" height="52" opacity=".5"/><rect x="150" y="176" width="140" height="52" opacity=".5"/><rect x="300" y="176" width="140" height="52" opacity=".5"/><rect x="450" y="176" width="140" height="52" opacity=".5"/><rect x="600" y="176" width="140" height="52" opacity=".5"/><rect x="-75" y="238" width="140" height="52" opacity=".5"/><rect x="75" y="238" width="140" height="52" opacity=".5"/><rect x="225" y="238" width="140" height="52" opacity=".5"/><rect x="375" y="238" width="140" height="52" opacity=".5"/><rect x="525" y="238" width="140" height="52" opacity=".5"/><rect x="0" y="300" width="140" height="52" opacity=".5"/><rect x="150" y="300" width="140" height="52" opacity=".5"/><rect x="300" y="300" width="140" height="52" opacity=".5"/><rect x="450" y="300" width="140" height="52" opacity=".5"/><rect x="600" y="300" width="140" height="52" opacity=".5"/><rect x="-75" y="362" width="140" height="52" opacity=".5"/><rect x="75" y="362" width="140" height="52" opacity=".5"/><rect x="225" y="362" width="140" height="52" opacity=".5"/><rect x="375" y="362" width="140" height="52" opacity=".5"/><rect x="525" y="362" width="140" height="52" opacity=".5"/><rect x="0" y="424" width="140" height="52" opacity=".5"/><rect x="150" y="424" width="140" height="52" opacity=".5"/><rect x="300" y="424" width="140" height="52" opacity=".5"/><rect x="450" y="424" width="140" height="52" opacity=".5"/><rect x="600" y="424" width="140" height="52" opacity=".5"/><rect x="-75" y="486" width="140" height="52" opacity=".5"/><rect x="75" y="486" width="140" height="52" opacity=".5"/><rect x="225" y="486" width="140" height="52" opacity=".5"/><rect x="375" y="486" width="140" height="52" opacity=".5"/><rect x="525" y="486" width="140" height="52" opacity=".5"/></g></svg></div></figure><a class="pg txt" href="https://www.isomat.com.de/products/bauwerksinstandsetzung/"><span class="no">06</span><span class="body"><h3>Mauerwerks&shy;herstellung &amp; -instand&shy;setzung</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></span><span class="fol">06 / 08</span></a></li>
+      <li style="--c:#7f4197"><figure class="pg img"><div class="face"><svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="600" height="500" fill="var(--c)"/><rect width="600" height="500" fill="#000" opacity=".42"/><g fill="none" stroke="#fff" stroke-width="1.2"><line x1="-500" y1="500" x2="0" y2="0" opacity=".2"/><line x1="-474" y1="500" x2="26" y2="0" opacity=".2"/><line x1="-448" y1="500" x2="52" y2="0" opacity=".2"/><line x1="-422" y1="500" x2="78" y2="0" opacity=".2"/><line x1="-396" y1="500" x2="104" y2="0" opacity=".2"/><line x1="-370" y1="500" x2="130" y2="0" opacity=".2"/><line x1="-344" y1="500" x2="156" y2="0" opacity=".2"/><line x1="-318" y1="500" x2="182" y2="0" opacity=".2"/><line x1="-292" y1="500" x2="208" y2="0" opacity=".2"/><line x1="-266" y1="500" x2="234" y2="0" opacity=".2"/><line x1="-240" y1="500" x2="260" y2="0" opacity=".2"/><line x1="-214" y1="500" x2="286" y2="0" opacity=".2"/><line x1="-188" y1="500" x2="312" y2="0" opacity=".2"/><line x1="-162" y1="500" x2="338" y2="0" opacity=".2"/><line x1="-136" y1="500" x2="364" y2="0" opacity=".2"/><line x1="-110" y1="500" x2="390" y2="0" opacity=".2"/><line x1="-84" y1="500" x2="416" y2="0" opacity=".2"/><line x1="-58" y1="500" x2="442" y2="0" opacity=".2"/><line x1="-32" y1="500" x2="468" y2="0" opacity=".2"/><line x1="-6" y1="500" x2="494" y2="0" opacity=".2"/><line x1="20" y1="500" x2="520" y2="0" opacity=".2"/><line x1="46" y1="500" x2="546" y2="0" opacity=".2"/><line x1="72" y1="500" x2="572" y2="0" opacity=".2"/><line x1="98" y1="500" x2="598" y2="0" opacity=".2"/><line x1="124" y1="500" x2="624" y2="0" opacity=".2"/><line x1="150" y1="500" x2="650" y2="0" opacity=".2"/><line x1="176" y1="500" x2="676" y2="0" opacity=".2"/><line x1="202" y1="500" x2="702" y2="0" opacity=".2"/><line x1="228" y1="500" x2="728" y2="0" opacity=".2"/><line x1="254" y1="500" x2="754" y2="0" opacity=".2"/><line x1="280" y1="500" x2="780" y2="0" opacity=".2"/><line x1="306" y1="500" x2="806" y2="0" opacity=".2"/><line x1="332" y1="500" x2="832" y2="0" opacity=".2"/><line x1="358" y1="500" x2="858" y2="0" opacity=".2"/><line x1="384" y1="500" x2="884" y2="0" opacity=".2"/><line x1="410" y1="500" x2="910" y2="0" opacity=".2"/><line x1="436" y1="500" x2="936" y2="0" opacity=".2"/><line x1="462" y1="500" x2="962" y2="0" opacity=".2"/><line x1="488" y1="500" x2="988" y2="0" opacity=".2"/><line x1="514" y1="500" x2="1014" y2="0" opacity=".2"/><line x1="540" y1="500" x2="1040" y2="0" opacity=".2"/><line x1="566" y1="500" x2="1066" y2="0" opacity=".2"/><line x1="592" y1="500" x2="1092" y2="0" opacity=".2"/><line x1="618" y1="500" x2="1118" y2="0" opacity=".2"/><line x1="644" y1="500" x2="1144" y2="0" opacity=".2"/><line x1="670" y1="500" x2="1170" y2="0" opacity=".2"/><line x1="696" y1="500" x2="1196" y2="0" opacity=".2"/><path d="M120 500 L420 0 L520 0 L220 500Z" fill="#fff" stroke="none" opacity=".2"/><path d="M300 500 L600 0 L630 0 L330 500Z" fill="#fff" stroke="none" opacity=".12"/><line x1="0" y1="170" x2="600" y2="170" opacity=".45"/><line x1="0" y1="340" x2="600" y2="340" opacity=".45"/></g></svg></div></figure><a class="pg txt" href="https://www.isomat.com.de/products/bodenbeschichtungen/"><span class="no">07</span><span class="body"><h3>Industrie&shy;beschichtungen</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></span><span class="fol">07 / 08</span></a></li>
+      <li style="--c:#f15a24"><figure class="pg img"><div class="face"><img src="assets/mikrozement.jpg" alt="Terrasse mit dekorativer Beschichtung, Referenzprojekt von ISOMAT" width="1200" height="675" loading="lazy"></div></figure><a class="pg txt" href="https://www.isomat.com.de/products/dekorative-boden-wandbeschichtungen/"><span class="no">08</span><span class="body"><h3>Dekorative Boden- &amp; Wand&shy;beschichtungen</h3><span class="go">Ansehen <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></span><span class="fol">08 / 08</span></a></li>
+    </ul>
+    <div class="wrap"><div class="bk-prog" aria-hidden="true"><i></i></div></div>
   </div>
 </div>
 
@@ -274,28 +366,34 @@ footer .note{flex-basis:100%;font-size:.8rem;max-width:90ch}
   </ul>
 </div>
 
-<section class="dark" aria-labelledby="h-neu">
-  <div class="wrap">
-    <div class="sec-head rv-l">
-      <p class="eyebrow">Aktuell</p>
-      <h2 id="h-neu">Neu und gefragt <b>im Sortiment</b></h2>
-    </div>
-    <div class="rows">
-      <a class="rv-r" href="https://www.isomat.com.de/multifill/"><span class="tag">Fugenmörtel</span><h3>MULTIFILL</h3><p>Die Premium-Fugenmörtel in neuen Farbtönen.</p><svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></a>
-      <a class="rv-l" href="https://www.isomat.com.de/product/isoflex-pu-500-2-de/"><span class="tag">Abdichtung</span><h3>ISOFLEX PU 500</h3><p>Flüssigabdichtung auf Polyurethan-Basis.</p><svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></a>
-      <a class="rv-r" href="https://www.isomat.com.de/mikrozement/"><span class="tag">Dekorativ</span><h3>Mikrozement</h3><p>Fugenlose Boden- und Wandbeschichtungen.</p><svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<section class="light" aria-labelledby="h-q">
-  <div class="wrap split">
-    <figure class="curtain"><img src="assets/labor.jpg" alt="Chemielabor von ISOMAT mit Prüfgeräten" width="1100" height="880" loading="lazy"></figure>
-    <div class="rv-r">
-      <div class="sec-head" style="margin-bottom:0">
-        <p class="eyebrow">Qualität &amp; Forschung</p>
-        <h2 id="h-q">Die Wissenschaft <b>hinter unseren Produkten</b></h2>
+<div class="bk dark" id="bk2" aria-labelledby="h-neu">
+  <div class="bk-sticky">
+    <div class="wrap bk-head">
+      <div>
+        <p class="eyebrow">Aktuell</p>
+        <h2 id="h-neu">Neu und gefragt <b>im Sortiment</b></h2>
       </div>
+      <div class="bk-nav">
+        <button type="button" class="bk-prev" aria-label="Zurückblättern"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M16 9H3M7.5 4.5 3 9l4.5 4.5"/></svg></button>
+        <span class="bk-count" aria-hidden="true">01 / 03</span>
+        <button type="button" class="bk-next" aria-label="Weiterblättern"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></button>
+      </div>
+    </div>
+    <ul class="book">
+      <li style="--c:#ed1c2e"><figure class="pg img"><div class="face"><img class="cover" src="assets/multifill.png" alt="" width="1200" height="375" loading="lazy"></div></figure><a class="pg txt" href="https://www.isomat.com.de/multifill/"><span class="no">01</span><span class="body"><span class="tag">Fugenmörtel</span><h3>MULTIFILL</h3><p>Die Premium-Fugenmörtel in neuen Farbtönen.</p><span class="go">Zur Farbkollektion <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></span><span class="fol">01 / 03</span></a></li>
+      <li style="--c:#1d71b8"><figure class="pg img"><div class="face"><img class="pack" src="assets/isoflex.png" alt="Gebinde ISOFLEX PU 500" width="270" height="270" loading="lazy"></div></figure><a class="pg txt" href="https://www.isomat.com.de/product/isoflex-pu-500-2-de/"><span class="no">02</span><span class="body"><span class="tag">Abdichtung</span><h3>ISOFLEX PU 500</h3><p>Flüssigabdichtung auf Polyurethan-Basis.</p><span class="go">Zum Produkt <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></span><span class="fol">02 / 03</span></a></li>
+      <li style="--c:#f15a24"><figure class="pg img"><div class="face"><img class="cover" src="assets/mikrozement-aussen.jpg" alt="Außenbereich mit Mikrozement, Referenzprojekt von ISOMAT" width="1200" height="675" loading="lazy"></div></figure><a class="pg txt" href="https://www.isomat.com.de/mikrozement/"><span class="no">03</span><span class="body"><span class="tag">Dekorativ</span><h3>Mikrozement</h3><p>Fugenlose Boden- und Wandbeschichtungen.</p><span class="go">Zum System <svg class="arrow" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 9h13M10.5 4.5 15 9l-4.5 4.5"/></svg></span></span><span class="fol">03 / 03</span></a></li>
+    </ul>
+    <div class="wrap"><div class="bk-prog" aria-hidden="true"><i></i></div></div>
+  </div>
+</div>
+
+<section class="science" aria-labelledby="h-q">
+  <img class="bg" id="scibg" src="assets/labor.jpg" alt="Chemielabor von ISOMAT mit Prüfgeräten" width="1100" height="880" loading="lazy">
+  <div class="wrap">
+    <div class="rv-l">
+      <p class="eyebrow">Qualität &amp; Forschung</p>
+      <h2 id="h-q">Die Wissenschaft <b>hinter unseren Produkten</b></h2>
       <p class="lead">Jedes Produkt durchläuft die eigene Qualitätskontrolle, bevor es das ISOMAT-Qualitätssiegel trägt.</p>
       <ul class="nums">
         <li><b data-count="45">45</b><span>Jahre Erfahrung</span></li>
@@ -374,40 +472,87 @@ if (fine && !reduce) document.querySelectorAll('.mag').forEach(b => {
   b.addEventListener('pointerleave', () => { b.style.transform = ''; });
 });
 
-// Sortiment: senkrechtes Scrollen bewegt die Kacheln seitlich
-const hs = document.getElementById('hs'), track = document.getElementById('track'), hsbar = document.getElementById('hsbar');
-const sites = document.getElementById('sites');
-let travel = 0, pinned = false;
-function layoutHs() {
-  const want = !reduce && innerWidth >= 900 && innerHeight >= 620;
-  hs.classList.toggle('pinned', want);
-  pinned = want;
-  if (pinned) { travel = Math.max(0, track.scrollWidth - innerWidth); hs.style.height = `calc(100vh + ${travel}px)`; }
-  else { hs.style.height = ''; track.style.transform = ''; }
-  onScroll();
+// Bedarfs-Check: drei Schritte, seitlich geschoben
+const CATNAMES = ['Bauwerksabdichtung', 'WDV-Systeme', 'Farben & Oberflächenschutz', 'Fliesen- & Natursteinverlegung', 'Betonherstellung & -instandsetzung', 'Mauerwerksherstellung & -instandsetzung', 'Industriebeschichtungen', 'Dekorative Boden- & Wandbeschichtungen'];
+const CATURLS = ['bauwerksabdichtung', 'wdv-systeme', 'putze-farben', 'fliesen-natursteinverlegung', 'beton-morteladditive', 'bauwerksinstandsetzung', 'bodenbeschichtungen', 'dekorative-boden-wandbeschichtungen'];
+const check = document.getElementById('check'), ctrack = document.getElementById('checktrack');
+const csteps = [...check.querySelectorAll('.step')], cdots = [...check.querySelectorAll('.check-steps i')];
+let ccat = 0, cstep = 0;
+function goStep(n, focus = true) {
+  cstep = n;
+  ctrack.style.transform = `translateX(${-n * 100}%)`;
+  csteps.forEach((st, i) => { st.inert = i !== n; });
+  cdots.forEach((d, i) => d.classList.toggle('on', i <= n));
+  if (focus) { const f = csteps[n].querySelector('button, a'); if (f) f.focus({ preventScroll: true }); }
 }
-function onScroll() {
-  if (pinned) {
-    const p = clamp(-hs.getBoundingClientRect().top / (travel || 1));
-    track.style.transform = `translate3d(${-p * travel}px,0,0)`;
-    hsbar.style.transform = `scaleX(${p})`;
-  }
-  if (!reduce) {
-    const r = sites.parentElement.getBoundingClientRect();
-    const p = clamp((innerHeight - r.top) / (innerHeight + r.height));
-    const over = Math.max(0, sites.scrollWidth - innerWidth);
-    sites.style.transform = `translate3d(${innerWidth * .18 - p * (over + innerWidth * .3)}px,0,0)`;
-  }
-}
-track.addEventListener('focusin', e => {
-  if (!pinned) return;
-  const c = e.target.closest('.cat'); if (!c) return;
-  const top = hs.getBoundingClientRect().top + scrollY;
-  scrollTo({ top: top + clamp((c.offsetLeft - 80) / (travel || 1)) * travel });
+check.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.cat !== undefined) { ccat = Number(b.dataset.cat); goStep(1); }
+  else if (b.dataset.who) {
+    const who = b.dataset.who, name = CATNAMES[ccat];
+    const res = document.getElementById('checkres');
+    res.textContent = 'Ihr Bereich: ';
+    const strong = document.createElement('b'); strong.textContent = name; res.append(strong, '.');
+    document.getElementById('checkgo').href = `https://www.isomat.com.de/products/${CATURLS[ccat]}/`;
+    document.getElementById('checkmail').href = 'mailto:info@isomat.com.de?subject=' + encodeURIComponent(`Anfrage ${name}`) + '&body=' + encodeURIComponent(`Guten Tag,\n\nich bin ${who} und interessiere mich für den Bereich ${name}.\n\nMein Vorhaben:\n\n`);
+    goStep(2);
+  } else if (b.classList.contains('check-back')) goStep(cstep === 2 ? 0 : cstep - 1);
 });
+
+// Buch: senkrechtes Scrollen schlägt die Seiten um
+const sites = document.getElementById('sites'), scibg = document.getElementById('scibg');
+const books = [...document.querySelectorAll('.bk')].map(el => {
+  const lis = [...el.querySelectorAll('.book li')], N = lis.length;
+  const txt = lis.map(li => li.querySelector('.txt')), img = lis.map(li => li.querySelector('.img'));
+  const bar = el.querySelector('.bk-prog i'), cnt = el.querySelector('.bk-count');
+  const b = { el, N, travel: 0, pinned: false, cur: 0 };
+  b.layout = () => {
+    b.pinned = !reduce && innerWidth >= 900 && innerHeight >= 620;
+    el.classList.toggle('pinned', b.pinned);
+    if (b.pinned) { b.travel = (N - 1) * innerHeight * .62; el.style.height = `calc(100vh + ${b.travel}px)`; }
+    else { el.style.height = ''; [...txt, ...img].forEach(x => { x.style.cssText = ''; }); }
+  };
+  b.update = () => {
+    if (!b.pinned) return;
+    const p = clamp(-el.getBoundingClientRect().top / b.travel), P = p * (N - 1);
+    const f = k => k >= N ? 0 : k < 1 ? 1 : clamp(P - (k - 1));
+    const z = (j, v) => v > 0 && v < 1 ? 50 : v === 0 ? N - j + 1 : j;
+    for (let k = 1; k <= N; k++) {
+      const v = f(k), t = txt[k - 1], sh = (Math.sin(v * Math.PI) * .32).toFixed(3);
+      t.style.setProperty('--a', `${-180 * v}deg`); t.style.setProperty('--sh', sh); t.style.zIndex = z(k, v);
+      t.style.pointerEvents = v > .5 ? 'none' : '';
+      const w = f(k - 1), g = img[k - 1];
+      g.style.setProperty('--a', `${-180 * w}deg`); g.style.zIndex = z(k - 1, w);
+      g.firstElementChild.style.setProperty('--sh', (Math.sin(w * Math.PI) * .32).toFixed(3));
+    }
+    b.cur = Math.round(P);
+    bar.style.transform = `scaleX(${p})`;
+    cnt.textContent = `${String(b.cur + 1).padStart(2, '0')} / ${String(N).padStart(2, '0')}`;
+  };
+  b.go = i => { const top = el.getBoundingClientRect().top + scrollY; scrollTo({ top: top + clamp(i / (N - 1)) * b.travel + 2, behavior: reduce ? 'auto' : 'smooth' }); };
+  el.querySelector('.bk-next').addEventListener('click', () => b.go(b.cur + 1));
+  el.querySelector('.bk-prev').addEventListener('click', () => b.go(b.cur - 1));
+  el.querySelector('.book').addEventListener('focusin', e => {
+    if (!b.pinned) return;
+    const i = txt.indexOf(e.target.closest('.txt'));
+    if (i !== -1 && i !== b.cur) { const top = el.getBoundingClientRect().top + scrollY; scrollTo({ top: top + (i / (N - 1)) * b.travel + 2 }); }
+  });
+  return b;
+});
+function onScroll() {
+  books.forEach(b => b.update());
+  if (reduce) return;
+  const r = sites.parentElement.getBoundingClientRect();
+  const p = clamp((innerHeight - r.top) / (innerHeight + r.height));
+  const over = Math.max(0, sites.scrollWidth - innerWidth);
+  sites.style.transform = `translate3d(${innerWidth * .18 - p * (over + innerWidth * .3)}px,0,0)`;
+  const q = scibg.parentElement.getBoundingClientRect();
+  if (q.bottom > 0 && q.top < innerHeight) scibg.style.transform = `translate3d(0,${((q.top + q.height / 2 - innerHeight / 2) / innerHeight * -9).toFixed(2)}%,0) scale(1.04)`;
+}
+function layoutAll() { books.forEach(b => b.layout()); onScroll(); }
 addEventListener('scroll', onScroll, { passive: true });
-addEventListener('resize', layoutHs);
-layoutHs();
+addEventListener('resize', layoutAll);
+layoutAll();
 
 // 3D-Schichtaufbau
 const LAYERS = [
