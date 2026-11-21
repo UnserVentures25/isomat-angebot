@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Angebot neue Startseite isomat.com.de</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23d0101f'/%3E%3C/svg%3E">
+<style>
+/* Layout: Prüfbericht. Schmale Lesespalte, Befunde als Protokollzeilen mit Einstufung, dunkles Band für den Entwurf. */
+:root{
+  --bg:#f5f5f3; --surface:#ffffff; --ink:#131314; --muted:#5a5a5f; --line:#dcdcd8;
+  --dark:#0b0b0c; --dark-2:#19191c; --dark-line:#2e2e33; --dark-muted:#b4b4ba;
+  --red:#d0101f; --red-ink:#b80d1a;
+  --hoch:#b3261e; --mittel:#8a5a00; --niedrig:#2f6b4a;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0f0f10; --surface:#18181a; --ink:#ececee; --muted:#a3a3a9; --line:#2c2c30;
+  --red:#e5323f; --red-ink:#ff6b76;
+  --hoch:#ff8a80; --mittel:#f2c264; --niedrig:#8fd0aa; color-scheme:dark;
+}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.wrap{max-width:940px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{line-height:1.2;text-wrap:balance;margin:0}
+h1{font-size:clamp(1.9rem,5vw,3rem);letter-spacing:-.02em;font-weight:750}
+h2{font-size:clamp(1.35rem,3vw,1.75rem);letter-spacing:-.01em}
+h3{font-size:1.05rem}
+p{margin:0}
+.label{font:600 .72rem/1.3 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+.top{background:var(--dark);color:#fff;padding-block:44px 48px;border-top:5px solid var(--red)}
+.top .label{color:var(--dark-muted)}
+.top h1{margin-top:14px;max-width:20ch}
+.top .lead{margin-top:16px;max-width:62ch;color:#d9d9dd;font-size:1.06rem}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--dark-line);margin-top:32px;border:1px solid var(--dark-line)}
+.facts div{background:var(--dark);padding:14px 16px}
+.facts dt{font:600 .7rem/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--dark-muted)}
+.facts dd{margin:6px 0 0;font-size:1.25rem;font-weight:650}
+.facts dd small{display:block;font-size:.8rem;font-weight:400;color:#c9c9ce;margin-top:2px}
+dl{margin:0}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;background:var(--red);color:#fff;font-weight:650;text-decoration:none;transition:transform .15s,filter .15s}
+.btn:hover{filter:brightness(1.12)}
+.btn:active{transform:scale(.97)}
+.btn:focus-visible,a:focus-visible{outline:3px solid #ff6b76;outline-offset:3px}
+.btn svg{width:16px;height:16px}
+.top .btn{margin-top:28px}
+
+section{padding-block:48px}
+section + section{border-top:1px solid var(--line)}
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.sec-head p{color:var(--muted);max-width:65ch}
+
+.group{margin-top:28px}
+.group h3{padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.find{display:grid;grid-template-columns:92px minmax(0,1fr);gap:6px 18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.find .sev{font:700 .72rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding-top:3px}
+.sev.hoch{color:var(--hoch)} .sev.mittel{color:var(--mittel)} .sev.niedrig{color:var(--niedrig)}
+.find strong{display:block}
+.find p{color:var(--muted);margin-top:4px;max-width:68ch}
+.find code{font:.86em var(--mono);background:var(--surface);border:1px solid var(--line);padding:1px 5px;border-radius:3px;overflow-wrap:anywhere}
+.find .fix{color:var(--ink);margin-top:6px}
+.find .fix::before{content:"Lösung: ";font-weight:650}
+@media (max-width:560px){.find{grid-template-columns:1fr}}
+
+.good{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px 28px;padding:0;margin:0;list-style:none}
+.good li{padding-left:18px;position:relative;color:var(--muted)}
+.good li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;background:var(--niedrig)}
+.good b{color:var(--ink);font-weight:650}
+
+.shots{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:640px){.shots{grid-template-columns:1fr}}
+figure{margin:0}
+figure img{border:1px solid var(--line);width:100%}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:8px}
+
+.band{background:var(--dark);color:#fff;padding-block:48px;border:0}
+.band + section{border-top:0}
+.band .label{color:var(--dark-muted)}
+.band .sec-head p{color:#d2d2d7}
+.band figure img{border-color:var(--dark-line);box-shadow:0 18px 50px rgba(0,0,0,.5)}
+.band figcaption{color:var(--dark-muted)}
+.band .shots{margin-top:8px}
+.band .row{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;margin-top:26px}
+.band .note{font-size:.88rem;color:var(--dark-muted);max-width:56ch}
+.what{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--dark-line);border:1px solid var(--dark-line);margin-top:28px;padding:0;list-style:none}
+.what li{background:var(--dark);padding:16px 18px;color:#d2d2d7;font-size:.94rem}
+.what b{display:block;color:#fff;margin-bottom:4px}
+
+.scope{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px 32px}
+.scope h3{margin-bottom:8px}
+.scope ul{margin:0;padding-left:18px;color:var(--muted)}
+.scope li{margin-top:4px}
+.price{margin-top:32px;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--red);padding:24px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 32px;align-items:center}
+.price .sum{font-size:clamp(2rem,6vw,2.8rem);font-weight:750;letter-spacing:-.02em;line-height:1}
+.price .sum small{display:block;font-size:.85rem;font-weight:400;color:var(--muted);letter-spacing:0;margin-top:8px}
+.price p{color:var(--muted);max-width:52ch;margin-top:6px}
+@media (max-width:600px){.price{grid-template-columns:1fr}}
+.cond{margin-top:18px;color:var(--muted);font-size:.94rem;max-width:70ch}
+.cond b{color:var(--ink)}
+
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px 28px}
+.steps li{counter-increment:s;border-top:2px solid var(--ink);padding-top:12px;color:var(--muted)}
+.steps li::before{content:counter(s,decimal-leading-zero);font:700 .8rem var(--mono);color:var(--red-ink);display:block;margin-bottom:6px}
+.steps b{color:var(--ink);display:block}
+
+footer{padding-block:32px 56px;color:var(--muted);font-size:.86rem;border-top:1px solid var(--line)}
+footer p + p{margin-top:8px}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="label">Angebot · Y Ventures · 21.11.2026</p>
+    <h1>Neue Startseite für isomat.com.de</h1>
+    <p class="lead">Wir haben die Startseite von isomat.com.de im Detail geprüft, dazu Kontakt, Impressum und eine Produktkategorie als Stichprobe. Hier stehen die Befunde, ein fertig gebauter Entwurf der neuen Startseite und das Angebot.</p>
+    <dl class="facts">
+      <div><dt>Geprüft</dt><dd class="num">Startseite<small>plus 3 Unterseiten als Stichprobe</small></dd></div>
+      <div><dt>Befunde</dt><dd class="num">17<small>davon 4 mit hoher Priorität</small></dd></div>
+      <div><dt>Entwurf</dt><dd>Fertig gebaut<small>Desktop und Handy, mit 3D-Aufbau</small></dd></div>
+      <div><dt>Festpreis</dt><dd class="num">1.900 €<small>netto, einmalig</small></dd></div>
+    </dl>
+    <a class="btn" href="vorschau/">Entwurf der Startseite öffnen
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Kurzfassung</p>
+      <h2>Solide Technik, aber der erste Bildschirm sagt Google und Besuchern nichts</h2>
+      <p>Die Seite ist gepflegt und technisch ordentlich aufgestellt. Das Problem liegt im ersten Eindruck: Alle Botschaften der Startseite stecken in wechselnden Bannerbildern. Suchmaschinen können sie nicht lesen, eine Hauptüberschrift fehlt, und auf dem Handy zeigt die deutsche Seite ein Banner in einer anderen Sprache. Dazu kommen ein veraltetes Impressum und unnötig schwere Dateien.</p>
+    </div>
+    <ul class="good">
+      <li><b>Gute Grundwerte.</b> Lighthouse mobil: Suchmaschinen 100, Best Practices 100, Barrierefreiheit 96 von 100.</li>
+      <li><b>Cookie-Banner mit Wahl.</b> „Nur Wesentliches akzeptieren“ ist vorhanden und funktioniert.</li>
+      <li><b>International sauber verknüpft.</b> 25 Länderseiten sind technisch miteinander verbunden.</li>
+      <li><b>Aktuell gepflegt.</b> Neue Inhalte aus November 2026, Sitemap und strukturierte Unternehmensdaten vorhanden.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Ist-Zustand</p>
+      <h2>So sieht ein Besucher die Seite heute</h2>
+    </div>
+    <div class="shots">
+      <figure>
+        <img src="img/ist-desktop.jpg" alt="Startseite isomat.com.de am Desktop: Bildbanner mit eingebettetem Text, darunter acht farbige Kategorie-Kacheln mit falsch getrennten Wörtern" width="1400" height="875">
+        <figcaption>Desktop: Die Aussage oben ist Teil eines Bildes und wechselt alle paar Sekunden. In den Kacheln wird falsch getrennt: „BETONHERS-TELLUNG“, „OBERFLÄ-CHENSCHUTZ“.</figcaption>
+      </figure>
+      <figure>
+        <img src="img/ist-mobil.jpg" alt="Startseite isomat.com.de am Handy: Banner mit dem Text NOVE BOJE MULTIFILL" width="780" height="1688" loading="lazy">
+        <figcaption>Handy: Das erste Banner der deutschen Seite trägt die Aufschrift „NOVE BOJE“. Am Desktop steht dort „NEUE FARBTÖNE“.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Prüfprotokoll</p>
+      <h2>17 Befunde, nach Bereich und Priorität</h2>
+      <p>Jeder Befund ist auf der Live-Seite nachvollziehbar. Stand der Prüfung: 21.11.2026.</p>
+    </div>
+
+    <div class="group">
+      <h3>Auffindbarkeit bei Google</h3>
+      <div class="find"><span class="sev hoch">Hoch</span><div>
+        <strong>Die Startseite hat keine Hauptüberschrift</strong>
+        <p>Es gibt keine einzige Überschrift der ersten Ebene. Die sechs vorhandenen Überschriften heißen „Globale Präsenz“ oder „Nachhaltigkeit“, keine nennt Bauchemie, Abdichtung oder Trockenmörtel. Auch die Kontaktseite hat keine Hauptüberschrift.</p>
+        <p class="fix">Eine klare Hauptüberschrift mit dem Kernthema, saubere Gliederung darunter.</p></div></div>
+      <div class="find"><span class="sev hoch">Hoch</span><div>
+        <strong>Die wichtigsten Aussagen stecken in Bildern</strong>
+        <p>Die sechs Banner im Seitenkopf enthalten ihren Text als Grafik und haben keinen Alternativtext. Insgesamt sind 149 von 172 Bildern der Startseite ohne Beschreibung. Für Google und für Vorleseprogramme ist der erste Bildschirm damit leer.</p>
+        <p class="fix">Echter Text im Seitenkopf, Alternativtexte für alle inhaltlichen Bilder.</p></div></div>
+      <div class="find"><span class="sev mittel">Mittel</span><div>
+        <strong>Kein Vorschaubild beim Teilen</strong>
+        <p>Für LinkedIn, WhatsApp und andere Dienste ist kein Vorschaubild hinterlegt. Ein geteilter Link erscheint ohne Bild.</p>
+        <p class="fix">Vorschaubild mit Logo und Kernaussage hinterlegen.</p></div></div>
+      <div class="find"><span class="sev niedrig">Niedrig</span><div>
+        <strong>Beschreibung ohne Bezug zu Deutschland</strong>
+        <p>Der Text für die Suchergebnisse lautet „ISOMAT ist eine Herstellerfirma bauchemischer Produkte und Mörtel …“. Standort Karlsruhe, Sortiment und Beratung kommen nicht vor.</p>
+        <p class="fix">Beschreibung mit Sortiment, Standort und Handlungsaufforderung.</p></div></div>
+      <div class="find"><span class="sev niedrig">Niedrig</span><div>
+        <strong>Sprachzuordnung einer Länderseite</strong>
+        <p>Die brasilianische Adresse <code>isomat.com.br</code> ist als <code>pt-pt</code> (Portugiesisch für Portugal) ausgezeichnet.</p>
+        <p class="fix">Hinweis an die Zentrale, Kennzeichnung auf <code>pt-br</code> prüfen.</p></div></div>
+    </div>
+
+    <div class="group">
+      <h3>Inhalte und erster Eindruck</h3>
+      <div class="find"><span class="sev hoch">Hoch</span><div>
+        <strong>Handy-Banner auf der deutschen Seite in fremder Sprache</strong>
+        <p>Das erste Banner trägt am Handy die Aufschrift „NOVE BOJE MULTIFILL“. Die Datei heißt <code>isomat-multifill-de-mob.png</code>, enthält aber nicht die deutsche Fassung. Am Desktop steht korrekt „NEUE FARBTÖNE“.</p>
+        <p class="fix">Deutsche Fassung einsetzen. Mit echtem Text statt Textbildern kann das nicht mehr passieren.</p></div></div>
+      <div class="find"><span class="sev mittel">Mittel</span><div>
+        <strong>Der erste Bildschirm sagt nicht, was ISOMAT Deutschland tut</strong>
+        <p>Oben wechseln Produktbanner, der erste Textblock darunter beschreibt die Auslandsstrategie des Konzerns. Ein Satz zum Angebot für Kunden in Deutschland und ein sichtbarer nächster Schritt fehlen.</p>
+        <p class="fix">Seitenkopf mit Aussage, Kurzbeschreibung und zwei Knöpfen: Produkte finden, Fachberatung anfragen.</p></div></div>
+      <div class="find"><span class="sev mittel">Mittel</span><div>
+        <strong>Falsche Silbentrennung in den Kategorie-Kacheln</strong>
+        <p>„BETONHERS-TELLUNG“ und „OBERFLÄ-CHENSCHUTZ“ werden an der falschen Stelle getrennt.</p>
+        <p class="fix">Trennstellen fest vorgeben, Kacheln mit mehr Platz für lange Wörter.</p></div></div>
+      <div class="find"><span class="sev niedrig">Niedrig</span><div>
+        <strong>Deutsch und Englisch gemischt</strong>
+        <p>Mehrere Prüfzeichen sind englisch beschriftet, etwa „Suitable for Drinking Water“. Die fünf ISO-Zertifikate in der Fußzeile sind englische Dokumente. Ein Zeichen heißt „Emmisions Dans L'air Interieur“.</p>
+        <p class="fix">Deutsche Bezeichnungen, Schreibweise korrigieren, deutsche Zertifikate verlinken, soweit vorhanden.</p></div></div>
+    </div>
+
+    <div class="group">
+      <h3>Technik und Ladezeit</h3>
+      <div class="find"><span class="sev mittel">Mittel</span><div>
+        <strong>Schriften machen mehr als die Hälfte des Seitengewichts aus</strong>
+        <p>Die Schriftdateien werden im alten Format TTF ausgeliefert, je 127 bis 180 KB. Im Test wurden sechs Dateien mit zusammen rund 910 KB übertragen, zwei davon doppelt. Die ganze Startseite wog 1.656 KB. Der Browser meldet dazu Warnungen in der Konsole.</p>
+        <p class="fix">Schriften im Format WOFF2 ausliefern und nur einmal laden.</p></div></div>
+      <div class="find"><span class="sev mittel">Mittel</span><div>
+        <strong>504 KB Seitenquelltext, bei jedem Aufruf neu</strong>
+        <p>Das HTML der Startseite ist 504 KB groß, davon rund 250 KB eingebettete Gestaltungsregeln. Der Server verbietet dem Browser das Zwischenspeichern (<code>no-store</code>).</p>
+        <p class="fix">Gestaltungsregeln auslagern und zwischenspeichern lassen.</p></div></div>
+      <div class="find"><span class="sev mittel">Mittel</span><div>
+        <strong>Banner als schwere PNG-Dateien</strong>
+        <p>Die Banner sind 2.560 Pixel breite PNG-Dateien mit 290 bis 560 KB pro Stück.</p>
+        <p class="fix">Moderne Bildformate in passender Größe, oder Text und Bild trennen wie im Entwurf.</p></div></div>
+      <div class="find"><span class="sev niedrig">Niedrig</span><div>
+        <strong>Sicherheits-Kopfzeilen fehlen</strong>
+        <p>Der Server sendet keine der üblichen Schutzangaben wie HSTS, Content-Security-Policy oder X-Content-Type-Options.</p>
+        <p class="fix">Kopfzeilen am Server ergänzen, Hinweis an den Betreiber.</p></div></div>
+      <div class="find"><span class="sev niedrig">Niedrig</span><div>
+        <strong>Kontrast und kleine Tippflächen</strong>
+        <p>Weiß auf dem Marken-Rot erreicht 4,36 zu 1, gefordert sind 4,5 zu 1. Am Handy sind 31 Links und Knöpfe kleiner als 24 Pixel.</p>
+        <p class="fix">Leicht dunkleres Rot für Flächen mit Text, größere Tippflächen.</p></div></div>
+    </div>
+
+    <div class="group">
+      <h3>Recht und Datenschutz</h3>
+      <div class="find"><span class="sev hoch">Hoch</span><div>
+        <strong>Impressum verweist auf aufgehobene Gesetze</strong>
+        <p>Das Impressum nennt „§ 10 Absatz 3 MDStV“ sowie „§ 6 Abs. 1 MDStV und § 8 Abs. 1 TDG“. Beide Gesetze gelten seit 2007 nicht mehr.</p>
+        <p class="fix">Impressum auf den aktuellen Rechtsstand bringen lassen, wir pflegen den geprüften Text ein.</p></div></div>
+      <div class="find"><span class="sev mittel">Mittel</span><div>
+        <strong>Umsatzsteuer-Nummer mit zu vielen Ziffern</strong>
+        <p>Im Impressum steht „USt-IdNr.: DE2711300797669“. Eine deutsche Umsatzsteuer-Identifikationsnummer hat neun Ziffern, hier sind es dreizehn.</p>
+        <p class="fix">Nummer prüfen und korrigieren.</p></div></div>
+      <div class="find"><span class="sev mittel">Mittel</span><div>
+        <strong>Aufrufe an Google vor der Auswahl im Cookie-Banner</strong>
+        <p>Schon bevor ein Besucher im Banner etwas wählt, gehen Aufrufe an Google Analytics (zwei Konten) und Google Ads. Sie laufen im Modus „nicht eingewilligt“ und setzen im Test keine Cookies. Ob das so gewollt und zulässig ist, sollte der Datenschutzbeauftragte bewerten.</p>
+        <p class="fix">Einstellung prüfen lassen. Auf Wunsch stellen wir um, sodass vor der Einwilligung nichts an Google geht.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Entwurf · fertig gebaut</p>
+      <h2>So kann die neue Startseite aussehen</h2>
+      <p>Kein Bild vom Entwurf, sondern eine funktionierende Seite: am Rechner und am Handy bedienbar. Im Seitenkopf steht ein Bodenaufbau in fünf Schichten, den man drehen und Schicht für Schicht öffnen kann. Jede Schicht steht für einen Produktbereich von ISOMAT.</p>
+    </div>
+    <div class="shots">
+      <figure>
+        <a href="vorschau/"><img src="img/neu-desktop.jpg" alt="Entwurf der neuen Startseite am Desktop: schwarzer Seitenkopf mit Überschrift Bauchemie und Trockenmörtel für jede Schicht im Bauwerk und dreidimensionalem Schichtaufbau" width="1400" height="875" loading="lazy"></a>
+        <figcaption>Desktop: lesbare Hauptüberschrift, zwei klare nächste Schritte, 3D-Schichtaufbau.</figcaption>
+      </figure>
+      <figure>
+        <a href="vorschau/"><img src="img/neu-mobil.jpg" alt="Entwurf der neuen Startseite am Handy" width="780" height="1688" loading="lazy"></a>
+        <figcaption>Handy: derselbe Inhalt, ohne Textbilder.</figcaption>
+      </figure>
+    </div>
+    <ul class="what">
+      <li><b>Echter Text</b>Hauptüberschrift, Beschreibung und alle Produktbereiche sind für Google lesbar.</li>
+      <li><b>3D mit Bezug</b>Der Schichtaufbau erklärt das Sortiment, statt nur zu dekorieren.</li>
+      <li><b>Leicht</b>Die ganze Schrift wiegt 35 KB. Keine Dienste von Dritten, keine Cookies.</li>
+      <li><b>Zugänglich</b>Lighthouse Barrierefreiheit 100 von 100, bedienbar per Tastatur.</li>
+    </ul>
+    <div class="row">
+      <a class="btn" href="vorschau/">Entwurf öffnen
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></a>
+      <p class="note">Texte, Zahlen, Logo und Fotos stammen von der heutigen Website. Formulierungen, Farben und Bildauswahl stimmen wir vor der Umsetzung gemeinsam ab.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Angebot</p>
+      <h2>Leistungsumfang</h2>
+      <p>Die neue Startseite ersetzt die heutige im bestehenden System. Adresse, Produktdatenbank und alle Unterseiten bleiben unverändert, es entsteht kein Umzugsrisiko.</p>
+    </div>
+    <div class="scope">
+      <div><h3>Neue Startseite</h3><ul>
+        <li>Gestaltung und Umsetzung für Desktop, Tablet und Handy</li>
+        <li>Seitenkopf mit Hauptüberschrift und interaktivem 3D-Schichtaufbau</li>
+        <li>Acht Produktbereiche als Kacheln mit Bewegung</li>
+        <li>Aktuelles als Textkarten statt Bildbanner</li>
+        <li>Kontaktbereich mit Anruf- und Anfrage-Knopf</li></ul></div>
+      <div><h3>Auffindbarkeit</h3><ul>
+        <li>Überschriften-Struktur der Startseite</li>
+        <li>Titel, Beschreibung und Vorschaubild zum Teilen</li>
+        <li>Alternativtexte für alle Bilder der Startseite</li>
+        <li>Hauptüberschrift für die Kontaktseite</li></ul></div>
+      <div><h3>Technik</h3><ul>
+        <li>Schriften im modernen Format, nur einmal geladen</li>
+        <li>Bilder komprimiert und in passender Größe</li>
+        <li>Lesbare Kontraste und ausreichend große Tippflächen</li>
+        <li>Ladezeit vorher und nachher gemessen und dokumentiert</li></ul></div>
+      <div><h3>Korrekturen</h3><ul>
+        <li>Deutsches Handy-Banner, Silbentrennung, Schreibweisen</li>
+        <li>Geprüften Impressumstext und korrigierte Nummer einpflegen</li>
+        <li>Einstellung des Cookie-Banners nach Vorgabe anpassen</li>
+        <li>Liste der Hinweise für die Zentrale, die nur dort lösbar sind</li></ul></div>
+    </div>
+    <div class="price">
+      <div>
+        <h3>Festpreis für die Startseite von isomat.com.de</h3>
+        <p>Neue Startseite nach dem gezeigten Entwurf, alle 17 Befunde bearbeitet, einschließlich einer Korrekturrunde und Abschlussbericht mit Vorher-Nachher-Vergleich.</p>
+      </div>
+      <div class="sum num">1.900 €<small>netto, einmalig</small></div>
+    </div>
+    <p class="cond"><b>Voraussetzung:</b> Die Seite läuft auf einem WordPress-System, das für alle Länderseiten der Gruppe gebaut wurde. Für die Umsetzung brauchen wir einen Zugang zur deutschen Seite oder einen Ansprechpartner bei der betreuenden Agentur. Ist beides nicht möglich, liefern wir die Startseite als fertiges Paket zur Übernahme. <b>Nicht enthalten:</b> Neugestaltung der Unterseiten und Rechtsberatung.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Ablauf</p>
+      <h2>Vier Schritte bis zur neuen Startseite</h2>
+    </div>
+    <ol class="steps">
+      <li><b>Freigabe und Zugang</b>Sie bestätigen das Angebot und klären den Zugang zur Website.</li>
+      <li><b>Abstimmung</b>Kurzes Gespräch zu Texten, Bildern und dem Entwurf.</li>
+      <li><b>Umsetzung</b>Wir bauen die Startseite ein und arbeiten die Befunde ab, zuerst die mit hoher Priorität.</li>
+      <li><b>Abnahme</b>Sie prüfen das Ergebnis, wir setzen Korrekturen um und liefern den Abschlussbericht.</li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="label">Ausblick</p>
+      <h2>Was danach möglich ist</h2>
+      <p>Die Sitemap der deutschen Seite führt 325 Produkte, 122 Produktkategorien und 61 Referenzprojekte. Wir haben davon nur Stichproben angesehen. Kategorie- und Produktseiten im Stil der neuen Startseite sowie eine Prüfung im selben Umfang für weitere Länderseiten bieten wir gern im Anschluss an.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Y Ventures</strong> · Yves Unser · y-ventures.de</p>
+    <p>Die Hinweise zu Impressum, Cookies und Datenschutz sind technische Beobachtungen und keine Rechtsberatung. Die Rechtstexte selbst sollte eine Kanzlei oder der Datenschutzbeauftragte prüfen. Ladezeit und Dateigrößen wurden an einem einzelnen Aufruf am 21.11.2026 gemessen, nicht über einen längeren Zeitraum. Der Entwurf ist ein Vorschlag von Y Ventures und keine offizielle Seite der ISOMAT Deutschland GmbH.</p>
+  </div>
+</footer>
+
+</body>
+</html>
